@@ -22,7 +22,6 @@ function Notes() {
     dispatch(removeFromNotes(noteId));
   }
 
- 
 
   return (
     <div className="w-full h-full py-10 max-w-[1200px] mx-auto px-5 lg:px-0">
@@ -53,7 +52,7 @@ function Notes() {
                 {/* heading and Description */}
                 <div className="w-[50%] flex flex-col space-y-3">
                   <p className="text-4xl font-semibold text-left text-[#3B1E54]">{note?.title}</p>
-                  <p className="text-sm text-[#5f2887] font-normal line-clamp-3 max-w-[80%] text-left text-[#707070]">
+                  <p className="text-sm text-[#5f2887] font-normal line-clamp-3 max-w-[80%] text-left ">
                     {note?.content}
                   </p>
                 </div>
@@ -83,12 +82,12 @@ function Notes() {
                     </button>
 
                     <button className="p-2 rounded-[0.2rem] bg-[#5f2887] border border-[#c7c7c7]  hover:bg-transparent group hover:border-orange-500">
-                      <a href={`/notes/${note?._id}`} target="_blank">
+                      <Link to={`/notes/${note?._id}`} target="_blank">
                         <Eye
                           className="text-white group-hover:text-orange-500"
                           size={20}
                         />
-                      </a>
+                      </Link>
                     </button>
                     <button
                       className="p-2 rounded-[0.2rem] bg-[#5f2887] border border-[#c7c7c7]  hover:bg-transparent group hover:border-green-500"
