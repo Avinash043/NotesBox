@@ -26,7 +26,6 @@ function ViewAllNotes() {
 
   const shareUrl = window.location.href;
 
-  
   return (
     <div className="w-full h-full py-10 max-w-[1200px] mx-auto px-5 lg:px-0">
       <div className="flex flex-col gap-y-5 items-start">
@@ -41,50 +40,44 @@ function ViewAllNotes() {
           className={`w-full flex flex-col items-start relative rounded bg-opacity-10 border border-[rgba(128,121,121,0.3)] backdrop-blur-2xl`}
         >
           <div
-            className={`w-full rounded-t flex items-center justify-between gap-x-4 px-4 py-2 border-b border-[rgba(128,121,121,0.3)]`}
+            className={`w-full rounded-t flex items-center justify-between gap-x-4  py-2 border-b border-[rgba(128,121,121,0.3)]`}
           >
-            <div className="w-full flex gap-x-[6px] items-center select-none group">
-              <div className="w-[13px] h-[13px] rounded-full flex items-center justify-center p-[1px] overflow-hidden bg-[rgb(255,95,87)]" />
-
+            <div className="w-full flex items-center select-none group overflow-hidden">
+              {/* Circle and copy btn */}
               <div
-                className={`w-[13px] h-[13px] rounded-full flex items-center justify-center p-[1px] overflow-hidden bg-[rgb(254,188,46)]`}
-              />
-
-              <div className="w-[13px] h-[13px] rounded-full flex items-center justify-center p-[1px] overflow-hidden bg-[rgb(45,200,66)]" />
-            </div>
-            {/* Circle and copy btn */}
-            <div
-              className={`w-fit rounded-t flex items-center justify-between gap-x-4 px-4`}
-            >
-              <FacebookShareButton url={shareUrl}>
-                <FacebookIcon round={true} size={28}></FacebookIcon>
-              </FacebookShareButton>
-              <EmailShareButton url={shareUrl}>
-                <EmailIcon round={true} size={28}></EmailIcon>
-              </EmailShareButton>
-              <LinkedinShareButton url={shareUrl}>
-                <LinkedinIcon round={true} size={28}></LinkedinIcon>
-              </LinkedinShareButton>
-              <WhatsappShareButton url={shareUrl}>
-                <WhatsappIcon round={true} size={28}></WhatsappIcon>
-              </WhatsappShareButton>
-              <TelegramShareButton url={shareUrl}>
-                <TelegramIcon round={true} size={28}></TelegramIcon>
-              </TelegramShareButton>
-              <Link to={'qrcode'}>
-              <QrCodeIcon ></QrCodeIcon>
-              </Link>
-             
-              {/*Copy  button */}
-              <button
-                className={`flex justify-center items-center  transition-all duration-300 ease-in-out group`}
-                onClick={() => {
-                  navigator.clipboard.writeText(note.content);
-                  toast.success("Copied to Clipboard");
-                }}
+                className={`w-fit rounded-t flex items-center justify-between gap-x-4 px-4`}
               >
-                <Copy className="group-hover:text-success-500" size={20} />
-              </button>
+                <div className="flex flex-row gap-3">
+                  <FacebookShareButton url={shareUrl}>
+                    <FacebookIcon round={true} size={28}></FacebookIcon>
+                  </FacebookShareButton>
+                  <EmailShareButton url={shareUrl}>
+                    <EmailIcon round={true} size={28}></EmailIcon>
+                  </EmailShareButton>
+                  <LinkedinShareButton url={shareUrl}>
+                    <LinkedinIcon round={true} size={28}></LinkedinIcon>
+                  </LinkedinShareButton>
+                  <WhatsappShareButton url={shareUrl}>
+                    <WhatsappIcon round={true} size={28}></WhatsappIcon>
+                  </WhatsappShareButton>
+                  <TelegramShareButton url={shareUrl}>
+                    <TelegramIcon round={true} size={28}></TelegramIcon>
+                  </TelegramShareButton>
+                  <Link to={"qrcode"}>
+                    <QrCodeIcon></QrCodeIcon>
+                  </Link>
+                  <button
+                    className={`flex justify-center items-center  transition-all duration-300 ease-in-out group`}
+                    onClick={() => {
+                      navigator.clipboard.writeText(note.content);
+                      toast.success("Copied to Clipboard");
+                    }}
+                  >
+                    <Copy className="group-hover:text-success-500" size={20} />
+                  </button>
+                </div>
+              </div>
+              {/*Copy  button */}
             </div>
           </div>
 
